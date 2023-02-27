@@ -1,0 +1,11 @@
+#! /bin/bash
+sudo yum update -y
+
+# Get the install package
+curl -L --output cloudflared.rpm https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-x86_64.rpm
+
+# Install cloudflared
+sudo yum localinstall -y cloudflared.rpm
+
+# Install the service and connect the tunnel
+sudo cloudflared service install ${tunnel_token}
