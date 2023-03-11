@@ -1,3 +1,8 @@
+# General variables
+variable "name_prefix" {
+  description = "Prefix to use for naming resources"
+}
+
 # AWS variables
 variable "aws_region" {
   description = "The region in which resources will be created"
