@@ -65,14 +65,14 @@ resource "cloudflare_tunnel_config" "demo-config" {
 }
 
 # Create a CNAME record for the application
-resource "cloudflare_record" "demo-cname" {
+resource "cloudflare_record" "hello-cname" {
   zone_id = var.cloudflare_zone_id
   name    = "hello"
   value   = "${cloudflare_tunnel.demo.id}.cfargotunnel.com"
   type    = "CNAME"
   proxied = true
 }
-resource "cloudflare_record" "demo-cname" {
+resource "cloudflare_record" "rdp-cname" {
   zone_id = var.cloudflare_zone_id
   name    = "rdp"
   value   = "${cloudflare_tunnel.demo.id}.cfargotunnel.com"
