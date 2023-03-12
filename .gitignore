@@ -34,7 +34,7 @@ override.tf.json
 terraform.rc
 
 # Ignore lock files
-*.terraform.lock.hcl
+**/.terraform.lock.hcl
 
 # Ignore Mac .DS_Store files
 .DS_Store
