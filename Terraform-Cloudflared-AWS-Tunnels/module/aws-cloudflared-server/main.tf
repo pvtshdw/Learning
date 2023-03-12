@@ -42,7 +42,7 @@ resource "aws_instance" "demo_bastion" {
   #   subnet_id = aws_subnet.qa_bastion_subnet.id
   key_name = aws_key_pair.demo_key_pair.key_name
 
-  user_data = templatefile("cloudflared.tftpl", { tunnel_token = cloudflare_tunnel.demo.tunnel_token })
+  user_data = templatefile("./module/aws-cloudflared-server/cloudflared.tftpl", { tunnel_token = var.cloudflare_tunnel_token })
 
   tags = {
     Name          = "${var.name_prefix}-bastion"

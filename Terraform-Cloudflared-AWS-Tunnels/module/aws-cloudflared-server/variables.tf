@@ -16,3 +16,8 @@ variable "aws_access_key" {
 variable "aws_secret_key" {
   description = "The AWS secret key"
 }
+
+# Variables from Cloudflare Tunnel
+variable "cloudflare_tunnel_token" {
+  description = "The token from the Cloudflare tunnel"
+}
