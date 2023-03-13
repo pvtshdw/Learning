@@ -26,7 +26,7 @@ resource "tls_private_key" "key_pair" {
 
 # Create the key pair
 resource "aws_key_pair" "demo_key_pair" {
-  key_name   = "${var.name_prefix}-key-pair"
+  key_name   = "${var.name_prefix}-rdp-key-pair"
   public_key = tls_private_key.key_pair.public_key_openssh
 }
 
@@ -37,17 +37,18 @@ resource "local_file" "ssh_key" {
 }
 
 # Create the EC2 instance
-resource "aws_instance" "demo_bastion" {
-  ami           = "ami-0dfcb1ef8550277af" // AWS Linux AMI for US-East-1
+resource "aws_instance" "demo_rdp" {
+  ami           = "ami-0c2b0d3fb02824d92" // Microsoft Windows Server 2022 Base US-East-1
   instance_type = "t2.micro"
   #   subnet_id = aws_subnet.qa_bastion_subnet.id
   key_name = aws_key_pair.demo_key_pair.key_name
 
-  user_data = templatefile("cloudflared.tftpl", { tunnel_token = cloudflare_tunnel.demo.tunnel_token })
+  user_data = file("${path.module}/rdp-server.tftpl")
 
   tags = {
-    Name          = "${var.name_prefix}-bastion"
+    Name          = "${var.name_prefix}-rdp"
     "createdby"   = "marvin.martian"
     "environment" = "prod"
   }
 }
+

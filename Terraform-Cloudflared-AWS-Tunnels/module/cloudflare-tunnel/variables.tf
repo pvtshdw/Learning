@@ -19,3 +19,7 @@ variable "cloudflare_zone_id" {
 variable "cloudflare_zone_name" {
   description = "The base domain name for the zone"
 }
+
+variable "rdp_server_ip" {
+  description = "The private IP address of the RDP server"
+}

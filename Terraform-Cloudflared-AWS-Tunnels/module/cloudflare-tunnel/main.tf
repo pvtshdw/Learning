@@ -56,7 +56,7 @@ resource "cloudflare_tunnel_config" "demo-config" {
     }
     ingress_rule {
       hostname = "rdp.${var.cloudflare_zone_name}"
-      service = "rdp://???:3389"
+      service = "rdp://${var.rdp_server_ip}:3389"
     }
     ingress_rule {
       service = "http_status:404"

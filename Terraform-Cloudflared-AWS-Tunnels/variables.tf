@@ -33,3 +33,7 @@ variable "aws_access_key" {
 variable "aws_secret_key" {
   description = "The AWS secret key"
 }
+
+variable "rdp_server_ip" {
+  description = "The private IP address of the RDP server"
+}
