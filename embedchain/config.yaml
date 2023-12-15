@@ -1,0 +1,15 @@
+llm:
+  provider: azure_openai
+  config:
+    model: gpt-35-16k
+    deployment_name: gpt-35-16k
+    temperature: 0.7
+    max_tokens: 800
+    # top_p: 0.95
+    stream: false
+
+embedder:
+  provider: azure_openai
+  config:
+    model: text-embedding-ada-002
+    deployment_name: ZSuiteEmbeddings

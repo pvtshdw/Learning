@@ -1,0 +1,4 @@
+embedchain
+ipykernel
+pypdf
+python-dotenv
